@@ -21,7 +21,8 @@ def calc_amps
 end
 
 def tesla_api
-  @tesla_api ||= TeslaApi::Client.new(access_token: ENV['ACCESS_TOKEN'], refresh_token: ENV['REFRESH_TOKEN'])
+  auth_token = AuthToken.last
+  @tesla_api ||= TeslaApi::Client.new(access_token: auth_token.access_token, refresh_token: auth_token.refresh_token)
 end
 
 def find_car
@@ -82,4 +83,6 @@ rescue Faraday::UnauthorizedError => e
   AuthToken.create(access_token: tesla_api.access_token, refresh_token: tesla_api.refresh_token)
 
   puts "access_token #{tesla_api.access_token} refresh token: #{tesla_api.refresh_token}"
+rescue StandardError => e
+  puts e.message
 end
