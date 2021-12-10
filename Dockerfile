@@ -1,6 +1,6 @@
 FROM ruby:2.7.5-slim
 
-RUN apt-get update && apt-get install -y git ubuntu-dev-tools libsqlite3-dev
+RUN apt-get update && apt-get install -y git build-essential libsqlite3-dev
 
 WORKDIR /usr/src/app
 
