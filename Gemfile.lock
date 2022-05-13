@@ -1,89 +1,83 @@
-GIT
-  remote: https://github.com/timdorr/tesla-api
-  revision: 11b005cf964dd404a539a15b9a17fd727d60fc39
-  branch: master
-  specs:
-    tesla_api (3.1.0)
-      async-websocket
-      faraday
-      faraday_middleware
-
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (6.1.4.1)
-      activesupport (= 6.1.4.1)
-    activerecord (6.1.4.1)
-      activemodel (= 6.1.4.1)
-      activesupport (= 6.1.4.1)
-    activesupport (6.1.4.1)
+    activemodel (7.0.3)
+      activesupport (= 7.0.3)
+    activerecord (7.0.3)
+      activemodel (= 7.0.3)
+      activesupport (= 7.0.3)
+    activesupport (7.0.3)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
-      zeitwerk (~> 2.3)
-    async (1.30.1)
+    async (1.30.2)
       console (~> 1.10)
       nio4r (~> 2.3)
       timers (~> 4.1)
-    async-http (0.56.5)
+    async-http (0.56.6)
       async (>= 1.25)
       async-io (>= 1.28)
       async-pool (>= 0.2)
       protocol-http (~> 0.22.0)
       protocol-http1 (~> 0.14.0)
       protocol-http2 (~> 0.14.0)
-    async-io (1.32.2)
+      traces (~> 0.4.0)
+    async-io (1.33.0)
       async
-    async-pool (0.3.9)
+    async-pool (0.3.10)
       async (>= 1.25)
     async-websocket (0.19.0)
       async-http (~> 0.54)
       async-io (~> 1.23)
       protocol-websocket (~> 0.7.0)
-    concurrent-ruby (1.1.9)
-    console (1.14.0)
+    concurrent-ruby (1.1.10)
+    console (1.15.3)
       fiber-local
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.6)
-    faraday (1.8.0)
+    faraday (1.10.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
-      faraday-httpclient (~> 1.0.1)
+      faraday-httpclient (~> 1.0)
+      faraday-multipart (~> 1.0)
       faraday-net_http (~> 1.0)
-      faraday-net_http_persistent (~> 1.1)
+      faraday-net_http_persistent (~> 1.0)
       faraday-patron (~> 1.0)
       faraday-rack (~> 1.0)
-      multipart-post (>= 1.2, < 3)
+      faraday-retry (~> 1.0)
       ruby2_keywords (>= 0.0.4)
     faraday-em_http (1.0.0)
     faraday-em_synchrony (1.0.0)
     faraday-excon (1.1.0)
     faraday-httpclient (1.0.1)
+    faraday-multipart (1.0.3)
+      multipart-post (>= 1.2, < 3)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
+    faraday-retry (1.0.3)
     faraday_middleware (1.2.0)
       faraday (~> 1.0)
     fiber-local (1.0.0)
     http-accept (1.7.0)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
-    i18n (1.8.10)
+    i18n (1.10.0)
       concurrent-ruby (~> 1.0)
-    mime-types (3.3.1)
+    mime-types (3.4.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2021.0225)
-    minitest (5.14.4)
+    mime-types-data (3.2022.0105)
+    minitest (5.15.0)
     multipart-post (2.1.1)
     netrc (0.11.0)
     nio4r (2.5.8)
     protocol-hpack (1.4.2)
-    protocol-http (0.22.5)
-    protocol-http1 (0.14.2)
+    protocol-http (0.22.6)
+    protocol-http1 (0.14.4)
       protocol-http (~> 0.22)
     protocol-http2 (0.14.2)
       protocol-hpack (~> 1.4)
@@ -98,13 +92,17 @@ GEM
       netrc (~> 0.8)
     ruby2_keywords (0.0.5)
     sqlite3 (1.4.2)
+    tesla_api (3.1.0)
+      async-websocket
+      faraday
+      faraday_middleware
     timers (4.3.3)
+    traces (0.4.1)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.7)
-    zeitwerk (2.4.2)
+    unf_ext (0.0.8.1)
 
 PLATFORMS
   ruby
@@ -114,7 +112,7 @@ DEPENDENCIES
   dotenv
   rest-client
   sqlite3
-  tesla_api!
+  tesla_api
 
 BUNDLED WITH
    2.1.4

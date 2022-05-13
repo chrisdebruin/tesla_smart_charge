@@ -1,0 +1,12 @@
+version: '2.1'
+
+services:
+  app:
+    image: ruby_tesla
+    env_file:
+      - .env
+    volumes:
+      - db_data:/usr/src/app/db
+
+volumes:
+  db_data:

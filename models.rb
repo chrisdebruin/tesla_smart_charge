@@ -1,6 +1,6 @@
 require 'active_record'
 
-ActiveRecord::Base.logger = Logger.new(STDERR)
+ActiveRecord::Base.logger = Logger.new($stdout)
 ActiveRecord::Base.logger.level = :info
 
 ActiveRecord::Base.establish_connection(
@@ -8,21 +8,27 @@ ActiveRecord::Base.establish_connection(
   database: 'db/data.sqlite'
 )
 
-# ActiveRecord::Schema.define do
-#   create_table :auth_tokens, force: true do |table|
-#     table.column :access_token, :string
-#     table.column :refresh_token, :string
-#     table.column :created_at, :datetime
-#   end
+def create_tables
+  begin
+    ActiveRecord::Schema.define do
+      create_table :auth_tokens do |table|
+        table.column :access_token, :string
+        table.column :refresh_token, :string
+        table.column :created_at, :datetime
+      end
 
-#   create_table :statuses, force: true do |table|
-#     table.column :car_status, :string
-#     table.column :charging_state, :string
-#     table.column :charge_amps, :integer
-#     table.column :production_amps, :integer
-#     table.column :created_at, :datetime
-#   end
-# end
+      create_table :statuses do |table|
+        table.column :car_status, :string
+        table.column :charging_state, :string
+        table.column :charge_amps, :integer
+        table.column :production_amps, :integer
+        table.column :created_at, :datetime
+      end
+    end
+  rescue ActiveRecord::StatementInvalid
+    nil
+  end
+end
 
 class AuthToken < ActiveRecord::Base
 end
